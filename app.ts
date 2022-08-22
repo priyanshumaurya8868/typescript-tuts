@@ -7,8 +7,20 @@ const btn = document.querySelector("button");
 const numArr: number[] = []
 const strArr: string[] = []
 
+//typeAlias
+type NumberOrString = number|string
+
+
+type ResultObj = {val : number, time : Date}
+     //Or
+// interface ResultObj{
+//   val : number, 
+//   time : Date
+// }
+
+
 //union types
-function add(num1: number|string, num2: number|string) {
+function add(num1: NumberOrString, num2: NumberOrString) {
   if(typeof num1 === "number" && typeof num2 == "number"){
     return num1 + num2;
   }
@@ -18,7 +30,7 @@ function add(num1: number|string, num2: number|string) {
   return +num1 + +num2
 }
 
-const printResult = (obj : {val : number, time : Date})=>{
+const printResult = (obj : ResultObj)=>{
   console.log(obj)
 }
 
