@@ -3,6 +3,10 @@ const ip2 = document.getElementById("ip2") as HTMLInputElement;  //typecasting
 const btn = document.querySelector("button");
 // const btn = document.querySelector("button")!;
 
+
+const numArr: number[] = []
+const strArr: string[] = []
+
 //union types
 function add(num1: number|string, num2: number|string) {
   if(typeof num1 === "number" && typeof num2 == "number"){
@@ -11,17 +15,32 @@ function add(num1: number|string, num2: number|string) {
   else if(typeof num1 === 'string' && typeof num2 === 'string'){
     return num1+num2;
   }
-  
   return +num1 + +num2
+}
 
+const printResult = (obj : {val : number, time : Date})=>{
+  console.log(obj)
 }
 
 //null check
 btn?.addEventListener("click", (event) => {
   const num1 = ip1.value;
   const num2 = ip2.value;
+  
+  const numRes = add(+num1, +num2)  
+  const strRes = add(num1, num2)
 
-  console.log(add(+num1, +num2)); //changing str to num by '+'
-  console.log(add(num1, num2));
+  numArr.push(+numRes)
+  strArr.push(strRes as string)
+
+  console.log(numRes);
+  console.log(strRes);
+
+ printResult({val : numRes as number, time : new Date()})
+
+ console.log("num arr" + numArr)
+ console.log("str arr : "+strArr)
+
+  
   // console.log(add(true,false));  // boolean wont be accepected by the func
 });
