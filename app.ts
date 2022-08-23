@@ -4,8 +4,12 @@ const btn = document.querySelector("button");
 // const btn = document.querySelector("button")!;
 
 
-const numArr: number[] = []
-const strArr: string[] = []
+// const numArr: number[] = []
+// const strArr: string[] = []
+
+//generics 
+const numArr: Array<number> = []
+const strArr: Array<string> = []  
 
 //typeAlias
 type NumberOrString = number|string
